@@ -15,7 +15,6 @@
     }
     .container { max-width: 1100px; margin: 0 auto; }
 
-    /* ===== ЗАГОЛОВОК ===== */
     .page-header { text-align: center; margin-bottom: 36px; }
     .page-header h1 {
         font-size: 2.4rem; font-weight: 900; text-transform: uppercase;
@@ -24,7 +23,6 @@
     .page-header h1 span { color: #A6812A; }
     .page-header p { font-size: 1rem; color: #6B6B6B; }
 
-    /* ===== ПЛАВАЮЩИЕ КНОПКИ ===== */
     .floating-buttons {
         position: fixed; top: 20px; right: 20px; z-index: 1000;
         display: flex; flex-direction: column; gap: 12px; align-items: flex-end;
@@ -47,7 +45,6 @@
     }
     .float-btn .badge[data-count="0"] { display: none; }
 
-    /* ===== МЕНЮ ===== */
     .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 32px; }
     .category {
         background: #FFFFFF; border-radius: 16px; padding: 22px 26px 26px;
@@ -98,7 +95,6 @@
         white-space: nowrap; padding-top: 2px; text-align: right;
     }
 
-    /* ===== МОДАЛКИ ===== */
     .modal-overlay {
         display: none; position: fixed; inset: 0;
         background: rgba(0,0,0,0.65); z-index: 2000;
@@ -131,7 +127,6 @@
     }
     .modal-close:hover { background: #E8E0D4; }
 
-    /* Карточка блюда */
     .dish-modal { max-width: 520px; }
     .dish-modal .modal-close {
         position: absolute; top: 14px; right: 14px;
@@ -176,7 +171,6 @@
     .btn-primary:active { transform: scale(0.97); }
     .btn-primary.added { background: #27AE60; }
 
-    /* Правила */
     .rules-body { padding: 24px 28px 28px; }
     .rules-header {
         text-align: center; margin-bottom: 24px;
@@ -212,7 +206,6 @@
         margin-top: 18px; padding-top: 14px; border-top: 1px solid #F0EBE3;
     }
 
-    /* Трекер */
     .cart-modal { max-width: 560px; }
     .cart-clear {
         background: none; border: 1px solid #E8E0D4; color: #A0A0A0;
@@ -289,7 +282,6 @@
     }
     .cart-sum-price .sum { font-size: 1.15rem; font-weight: 800; color: #1A1A1A; }
 
-    /* ===== АДАПТИВ ===== */
     @media (max-width: 768px) {
         body { padding: 20px 14px 40px; }
         .page-header h1 { font-size: 1.6rem; }
@@ -316,7 +308,6 @@
 </head>
 <body>
 
-<!-- Плавающие кнопки -->
 <div class="floating-buttons">
     <button class="float-btn rules" onclick="openRules()">📋 Правила</button>
     <button class="float-btn" onclick="openCart()">
@@ -324,7 +315,6 @@
     </button>
 </div>
 
-<!-- Заголовок и меню -->
 <div class="container">
     <div class="page-header">
         <h1>БЕЗЛИМИТ <span>899 ₽</span></h1>
@@ -333,7 +323,6 @@
     <div class="menu-grid" id="menuGrid"></div>
 </div>
 
-<!-- Модалка: Правила -->
 <div class="modal-overlay" id="rulesModal" onclick="closeModal(event, 'rulesModal')">
     <div class="modal" onclick="event.stopPropagation()">
         <div class="modal-header">
@@ -351,7 +340,8 @@
                 <div class="rule-card"><div class="rule-icon">🍽️</div><div class="rule-text"><strong>Твой заказ</strong> — ешь его только сам, чужая тарелка неприкосновенна, делиться блюдами нельзя — иначе оплата по цене из основного меню.</div></div>
                 <div class="rule-card"><div class="rule-icon">🔄</div><div class="rule-text"><strong>Как заказывать</strong> — можно заказывать любое количество блюд из безлимитного меню, без ограничения по числу подходов.</div></div>
                 <div class="rule-card"><div class="rule-icon">✅</div><div class="rule-text"><strong>«Заказал — доедай»</strong> — если блюдо не доедено больше чем на 10%, оно оплачивается отдельно по полной цене из основного меню.</div></div>
-                <div class="rule-card"><div class="rule-icon">🥤</div><div class="rule-text"><strong>Напитки</strong> — 1 напиток на человека. Чай и кофе безлимитно.</div></div>
+                <div class="rule-card"><div class="rule-icon">🥤</div><div class="rule-text"><strong>Лимонады</strong> — можно заказать <strong>только один раз</strong> за визит, один тип на человека.</div></div>
+                <div class="rule-card"><div class="rule-icon">☕</div><div class="rule-text"><strong>Чай и кофе</strong> — безлимитно, но одновременно <strong>один тип</strong> (нельзя пить Ассам и Пуэр параллельно).</div></div>
                 <div class="rule-card"><div class="rule-icon">🚫</div><div class="rule-text"><strong>С собой не уносят</strong> — всё нужно съесть прямо здесь.</div></div>
                 <div class="rule-card"><div class="rule-icon">⏰</div><div class="rule-text"><strong>Когда действует</strong> — будни (пн–чт), с 11:00 до 16:00, последний заказ на безлимит принимается до 14:30. Время нахождения за столиком ограничено двумя часами.</div></div>
                 <div class="rule-card"><div class="rule-icon">📅</div><div class="rule-text"><strong>По пятницам</strong> акция не работает.</div></div>
@@ -369,7 +359,6 @@
     </div>
 </div>
 
-<!-- Модалка: Карточка блюда -->
 <div class="modal-overlay" id="dishModal" onclick="closeModal(event, 'dishModal')">
     <div class="modal dish-modal" onclick="event.stopPropagation()">
         <button class="modal-close" onclick="closeModal(null, 'dishModal')">×</button>
@@ -387,7 +376,6 @@
     </div>
 </div>
 
-<!-- Модалка: Трекер -->
 <div class="modal-overlay" id="cartModal" onclick="closeModal(event, 'cartModal')">
     <div class="modal cart-modal" onclick="event.stopPropagation()">
         <div class="modal-header">
@@ -402,7 +390,6 @@
 </div>
 
 <script>
-/* ========== ДАННЫЕ МЕНЮ ========== */
 const menuData = [
     {
         category: "Лимонады",
@@ -504,7 +491,6 @@ const menuData = [
 let cart = {};
 let currentDish = null;
 
-/* ========== МОДАЛКИ ========== */
 function openRules() {
     document.getElementById('rulesModal').classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -522,7 +508,6 @@ function closeModal(e, id) {
     }, 50);
 }
 
-/* ========== РЕНДЕР МЕНЮ ========== */
 function renderMenu() {
     const grid = document.getElementById('menuGrid');
     grid.innerHTML = menuData.map(cat => `
@@ -560,7 +545,6 @@ function findItem(id) {
     return null;
 }
 
-/* ========== КАРТОЧКА БЛЮДА ========== */
 function openDish(id) {
     const item = findItem(id);
     if (!item) return;
@@ -599,7 +583,6 @@ function addFromModal() {
     setTimeout(() => closeModal(null, 'dishModal'), 600);
 }
 
-/* ========== ТРЕКЕР ========== */
 function addToCart(id, delta = 1) {
     const item = findItem(id);
     if (!item) return;
@@ -684,7 +667,6 @@ function renderCartContent() {
     `;
 }
 
-/* ========== ИНИЦИАЛИЗАЦИЯ ========== */
 renderMenu();
 updateCartUI();
 
